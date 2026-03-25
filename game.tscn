@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c85copndot5n" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="FontFile" uid="uid://dtdp78nphm1ts" path="res://assets/fonts/Fredoka-Bold.ttf" id="3_7jktm"]
+[ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="2_fc0e3"]
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="3_feb5d"]
-[ext_resource type="FontFile" uid="uid://cfi01aywwpv2m" path="res://assets/fonts/Fredoka-Regular.ttf" id="4_ryrav"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.40498364, 0.6317992, 0.76868474, 1)
@@ -55,7 +54,7 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("3_7jktm")
+theme_override_fonts/font = ExtResource("2_fc0e3")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxFlat_7jktm")
 text = "Upgrades"
@@ -65,7 +64,7 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 874.0
+offset_right = 272.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
 
@@ -88,7 +87,7 @@ script = ExtResource("3_feb5d")
 [node name="Followers" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=320573723]
 layout_mode = 2
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("3_7jktm")
+theme_override_fonts/font = ExtResource("2_fc0e3")
 theme_override_font_sizes/font_size = 37
 text = "0 followers"
 horizontal_alignment = 1
@@ -97,7 +96,7 @@ vertical_alignment = 1
 [node name="PerSecond" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=490066092]
 layout_mode = 2
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("4_ryrav")
+theme_override_fonts/font = ExtResource("2_fc0e3")
 theme_override_font_sizes/font_size = 26
 text = "0 PER SECOND"
 horizontal_alignment = 1
@@ -112,6 +111,12 @@ layout_mode = 2
 texture_normal = ExtResource("1_80nbo")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="CenterPanel" type="Panel" parent="." unique_id=412655587]
+layout_mode = 0
+offset_left = 272.0
+offset_right = 874.0
+offset_bottom = 648.0
 
 [connection signal="gain_followers" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_followers"]
 [connection signal="button_down" from="LeftPanel/MarginContainer/CenterContainer/PostButton" to="." method="_on_post_button_button_down"]
