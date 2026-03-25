@@ -2,7 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c85copndot5n" path="res://scripts/game.gd" id="1_e2o6t"]
+[ext_resource type="FontFile" uid="uid://dtdp78nphm1ts" path="res://assets/fonts/Fredoka-Bold.ttf" id="3_7jktm"]
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="3_feb5d"]
+[ext_resource type="FontFile" uid="uid://cfi01aywwpv2m" path="res://assets/fonts/Fredoka-Regular.ttf" id="4_ryrav"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+bg_color = Color(0.40498364, 0.6317992, 0.76868474, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
+bg_color = Color(0.21435693, 0.4208527, 0.5425321, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
 
 [node name="Game" type="Control" unique_id=843256397]
 layout_mode = 3
@@ -13,35 +28,90 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2o6t")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1579965092]
+[node name="RightPanel" type="Panel" parent="." unique_id=1406605891]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -278.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPanel" unique_id=578023686]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="PostButton" type="TextureButton" parent="CenterContainer" unique_id=1921106611]
+[node name="Upgrades" type="Label" parent="RightPanel/MarginContainer" unique_id=1680081516]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_7jktm")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_7jktm")
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="LeftPanel" type="Panel" parent="." unique_id=907673007]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 874.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftPanel" unique_id=296790827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Stats" type="VBoxContainer" parent="LeftPanel/MarginContainer" unique_id=511652317]
+layout_mode = 2
+script = ExtResource("3_feb5d")
+
+[node name="Followers" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=320573723]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_7jktm")
+theme_override_font_sizes/font_size = 37
+text = "0 followers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PerSecond" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=490066092]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_ryrav")
+theme_override_font_sizes/font_size = 26
+text = "0 PER SECOND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="LeftPanel/MarginContainer" unique_id=1579965092]
+layout_mode = 2
+
+[node name="PostButton" type="TextureButton" parent="LeftPanel/MarginContainer/CenterContainer" unique_id=1921106611]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture_normal = ExtResource("1_80nbo")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Stats" type="VBoxContainer" parent="." unique_id=511652317]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-script = ExtResource("3_feb5d")
-
-[node name="Followers" type="Label" parent="Stats" unique_id=320573723]
-layout_mode = 2
-theme_override_font_sizes/font_size = 37
-text = "0 followers"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="gain_followers" from="." to="Stats" method="_on_game_gain_followers"]
-[connection signal="button_down" from="CenterContainer/PostButton" to="." method="_on_post_button_button_down"]
+[connection signal="gain_followers" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_followers"]
+[connection signal="button_down" from="LeftPanel/MarginContainer/CenterContainer/PostButton" to="." method="_on_post_button_button_down"]
