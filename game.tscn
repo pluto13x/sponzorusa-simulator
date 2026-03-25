@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c21siau1woym7"]
+
+[ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://c85copndot5n" path="res://scripts/game.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="3_feb5d"]
+
+[node name="Game" type="Control" unique_id=843256397]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2o6t")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1579965092]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PostButton" type="TextureButton" parent="CenterContainer" unique_id=1921106611]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("1_80nbo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Stats" type="VBoxContainer" parent="." unique_id=511652317]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+script = ExtResource("3_feb5d")
+
+[node name="Followers" type="Label" parent="Stats" unique_id=320573723]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "0 followers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gain_followers" from="." to="Stats" method="_on_game_gain_followers"]
+[connection signal="button_down" from="CenterContainer/PostButton" to="." method="_on_post_button_button_down"]
