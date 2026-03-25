@@ -1,5 +1,5 @@
 extends VBoxContainer
-@onready var followers: Label = $Followers
+@onready var followers: Label = $FollowerCount
 
 func _on_game_gain_followers(amount) -> void:
-	followers.text = str(amount) + " followers"
+	followers.text = str(amount)
