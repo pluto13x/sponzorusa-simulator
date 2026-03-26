@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqm8lpmabpugh"]
+
+[ext_resource type="Texture2D" uid="uid://cljxc5aeb0qut" path="res://assets/sponzorusa/regular asset.PNG" id="1_d3743"]
+
+[node name="sponzorusa" type="Node2D" unique_id=274031362]
+
+[node name="Body" type="Sprite2D" parent="." unique_id=478222966]
+texture = ExtResource("1_d3743")
+centered = false
+
+[node name="Boobs" type="Sprite2D" parent="Body" unique_id=1930208107]
+centered = false
+
+[node name="Makeup" type="Sprite2D" parent="Body" unique_id=1200037119]
+centered = false
+
+[node name="Lips" type="Sprite2D" parent="Body" unique_id=636136589]
+centered = false

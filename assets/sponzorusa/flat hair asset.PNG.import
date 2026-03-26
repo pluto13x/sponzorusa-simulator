@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckn1lbwhv4rb4"
-path="res://.godot/imported/sunburst.png-2bfc6a13a9e593a91588b0cdd0a9c99b.ctex"
+uid="uid://dyqhavx68w2ql"
+path="res://.godot/imported/flat hair asset.PNG-7d823f7ae3424062f2e30778ec601c73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/sunburst.png"
-dest_files=["res://.godot/imported/sunburst.png-2bfc6a13a9e593a91588b0cdd0a9c99b.ctex"]
+source_file="res://assets/sponzorusa/flat hair asset.PNG"
+dest_files=["res://.godot/imported/flat hair asset.PNG-7d823f7ae3424062f2e30778ec601c73.ctex"]
 
 [params]
 
