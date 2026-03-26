@@ -4,20 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://dhxlek2fagvcq" path="res://Screenshot 2026-03-25 234912.png" id="2_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="4_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://7w7donwap0or" path="res://assets/upgrade icons/AdobeStock_316494354-scaled.png" id="4_gee14"]
 [ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scenes/posts.gd" id="6_u5sy4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
-bg_color = Color(0.40392157, 0.6313726, 0.76862746, 0.58431375)
+bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
-bg_color = Color(0.21435693, 0.4208527, 0.5425321, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
 bg_color = Color(1, 1, 1, 1)
@@ -44,32 +60,85 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -358.0
+offset_left = -370.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
 
-[node name="MarginContainer" type="MarginContainer" parent="RightPanel" unique_id=578023686]
+[node name="Upgrades" type="Label" parent="RightPanel" unique_id=1680081516]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 63.0
+offset_right = 327.0
+offset_bottom = 103.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5sy4")
+text = "  Upgrades"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="RightPanel" unique_id=1283586624]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 321.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gee14")
+text = "      Search Sponzzr"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPanel" unique_id=703428590]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 103.0
+offset_right = 327.0
+offset_bottom = 560.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+
+[node name="UpgradeButtons" type="VBoxContainer" parent="RightPanel/MarginContainer" unique_id=264514197]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="RightPanel/MarginContainer/UpgradeButtons" unique_id=1411194802]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tnpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightPanel/MarginContainer/UpgradeButtons/Button" unique_id=892110688]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/separation = 10
 
-[node name="Upgrades" type="Label" parent="RightPanel/MarginContainer" unique_id=1680081516]
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel/MarginContainer/UpgradeButtons/Button/HBoxContainer" unique_id=1402188554]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/outline_size = 6
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="RightPanel/MarginContainer/UpgradeButtons/Button/HBoxContainer/VBoxContainer" unique_id=1328976352]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_font_sizes/font_size = 37
-theme_override_styles/normal = SubResource("StyleBoxFlat_7jktm")
-text = "Upgrades"
-horizontal_alignment = 1
+text = "Lip filler"
+
+[node name="Label2" type="Label" parent="RightPanel/MarginContainer/UpgradeButtons/Button/HBoxContainer/VBoxContainer" unique_id=1243665083]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("3_gee14")
+text = "Fill your lips"
+
+[node name="TextureRect" type="TextureRect" parent="RightPanel/MarginContainer/UpgradeButtons/Button/HBoxContainer" unique_id=786626956]
+layout_mode = 2
+texture = ExtResource("4_gee14")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="LeftPanel" type="Panel" parent="." unique_id=907673007]
 layout_mode = 1
@@ -166,7 +235,7 @@ vertical_alignment = 1
 [node name="CenterPanel" type="Panel" parent="." unique_id=412655587]
 layout_mode = 0
 offset_left = 265.0
-offset_right = 794.0
+offset_right = 782.0
 offset_bottom = 648.0
 
 [node name="PostButton" type="TextureButton" parent="CenterPanel" unique_id=1921106611]
