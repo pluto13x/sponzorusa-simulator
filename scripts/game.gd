@@ -41,9 +41,10 @@ func emit_signals():
 	emit_signal("gain_money", money, money_per_sec)
 	
 func calculate_followers_and_money():
-	followers_per_sec = 0.5 * posts**0.6
+	followers_per_sec = 0.25 * posts**0.6
+	money_per_sec = 0.02 * posts**0.4 * followers**0.6
+	
 	followers += followers_per_sec/10
-	money_per_sec = 0.1 * sqrt(posts * followers)
 	money += money_per_sec/10
 	
 func _ready() -> void:

@@ -13,5 +13,5 @@ func _on_game_gain_followers(amount, persec) -> void:
 
 
 func _on_game_gain_money(amount, persec) -> void:
-	money_count.text = str(int(round(amount)))
-	money_per_sec.text = str(int(round(persec))) + " PER SECOND"
+	money_count.text = str("%.2f" % amount)
+	money_per_sec.text = str("%.2f" % persec) + " PER SECOND"
