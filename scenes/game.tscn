@@ -119,7 +119,7 @@ theme_override_font_sizes/font_size = 20
 text = "1341234"
 vertical_alignment = 1
 
-[node name="PerSecond" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=490066092]
+[node name="FollowersPerSec" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=490066092]
 layout_mode = 2
 theme = SubResource("Theme_7jktm")
 theme_override_colors/font_color = Color(0.23137255, 0.24313726, 0.2509804, 1)
@@ -197,7 +197,7 @@ script = ExtResource("6_u5sy4")
 position = Vector2(3.0000002, 229)
 scale = Vector2(0.2, 0.2)
 
-[node name="Button" type="Button" parent="." unique_id=1684928444]
+[node name="RestartSave" type="Button" parent="." unique_id=1684928444]
 layout_mode = 0
 offset_left = 995.0
 offset_top = 574.0
@@ -205,8 +205,13 @@ offset_right = 1109.0
 offset_bottom = 609.0
 text = "restart save"
 
+[node name="Timer" type="Timer" parent="." unique_id=1965286781]
+wait_time = 0.1
+autostart = true
+
 [connection signal="gain_followers" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_followers"]
 [connection signal="gain_money" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_money"]
 [connection signal="gain_posts" from="." to="CenterPanel/Posts" method="_on_game_gain_posts"]
 [connection signal="button_down" from="CenterPanel/PostButton" to="." method="_on_post_button_button_down"]
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="RestartSave" to="." method="_on_restart_save_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

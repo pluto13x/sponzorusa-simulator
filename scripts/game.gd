@@ -6,16 +6,12 @@ var followers = 0
 var money = 0
 var posts = 0
 var posts_per_click = 1
+var followers_per_sec = 0
+var money_per_sec = 0
 
-signal gain_followers(amount)
+signal gain_followers(amount, persec)
 signal gain_posts(amount)
-signal gain_money(amount)
-
-func _ready() -> void:
-	load_data()
-	emit_signal("gain_posts", posts)
-	emit_signal("gain_followers", followers)
-	emit_signal("gain_money", money)
+signal gain_money(amount, persec)
 
 func save_data():
 	var data = {
@@ -39,20 +35,36 @@ func load_data():
 	else:
 		save_data()
 
-func _on_post_button_button_down() -> void:
-	posts += posts_per_click
+func emit_signals():
 	emit_signal("gain_posts", posts)
+	emit_signal("gain_followers", followers, followers_per_sec)
+	emit_signal("gain_money", money, money_per_sec)
+	
+func calculate_followers_and_money():
+	followers_per_sec = 0.5 * posts**0.6
+	followers += followers_per_sec/10
+	money_per_sec = 0.1 * sqrt(posts * followers)
+	money += money_per_sec/10
+	
+func _ready() -> void:
+	load_data()
+	emit_signals()
 	
 func _process(_delta: float) -> void:
 	save_data()
 
+func _on_post_button_button_down() -> void:
+	posts += posts_per_click
+	emit_signal("gain_posts", posts)
 
-func _on_button_button_down() -> void:
+func _on_restart_save_button_down() -> void:
 	followers = 0
 	money = 0
 	posts = 0
 	posts_per_click = 1
 	save_data()
-	emit_signal("gain_posts", posts)
-	emit_signal("gain_followers", followers)
-	emit_signal("gain_money", money)
+	emit_signals()
+
+func _on_timer_timeout() -> void:
+	calculate_followers_and_money()
+	emit_signals()
