@@ -13,7 +13,9 @@ signal gain_money(amount)
 
 func _ready() -> void:
 	load_data()
+	emit_signal("gain_posts", posts)
 	emit_signal("gain_followers", followers)
+	emit_signal("gain_money", money)
 
 func save_data():
 	var data = {
@@ -40,4 +42,17 @@ func load_data():
 func _on_post_button_button_down() -> void:
 	posts += posts_per_click
 	emit_signal("gain_posts", posts)
+	
+func _process(_delta: float) -> void:
 	save_data()
+
+
+func _on_button_button_down() -> void:
+	followers = 0
+	money = 0
+	posts = 0
+	posts_per_click = 1
+	save_data()
+	emit_signal("gain_posts", posts)
+	emit_signal("gain_followers", followers)
+	emit_signal("gain_money", money)
