@@ -6,9 +6,13 @@
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="4_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cyhhvmvjjpvxw" path="res://scenes/upgrade_button.tscn" id="4_gee14"]
 [ext_resource type="StyleBox" uid="uid://bfiw1lc2liaon" path="res://styles/search.tres" id="4_vtaks"]
-[ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="5_vtaks"]
+[ext_resource type="Texture2D" uid="uid://bnyc8ati8y4sl" path="res://assets/icons/search.png" id="5_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/icons/cookie.png" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scenes/posts.gd" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://crmqycuneuprx" path="res://assets/icons/followers.png" id="8_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://crpqhrp4vxu8s" path="res://assets/icons/logo.png" id="10_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dp8epejgage0e" path="res://assets/icons/money.png" id="12_dinhu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
@@ -29,6 +33,84 @@ border_width_left = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trtic"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir15t"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca42v"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
+resource_local_to_scene = true
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
@@ -71,8 +153,13 @@ offset_bottom = 53.0
 theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
 theme_override_fonts/font = ExtResource("3_gee14")
 theme_override_styles/normal = ExtResource("4_vtaks")
-text = "      Search Sponzzr"
+text = "        Search Sponzzr"
 vertical_alignment = 1
+
+[node name="Search" type="Sprite2D" parent="RightPanel" unique_id=195931943]
+position = Vector2(34.99999, 37)
+scale = Vector2(0.05156253, 0.05156253)
+texture = ExtResource("5_kvpfn")
 
 [node name="Upgrades" type="Label" parent="RightPanel" unique_id=1680081516]
 layout_mode = 1
@@ -118,21 +205,33 @@ theme_override_constants/separation = 17
 
 [node name="UpgradeButton" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1393777787 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dinhu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dinhu")
 
 [node name="UpgradeButton2" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=371594509 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvuet")
 
 [node name="UpgradeButton3" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=2031301634 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
 
 [node name="UpgradeButton4" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1840947658 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ir15t")
 
 [node name="UpgradeButton5" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1926630113 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ca42v")
 
 [node name="UpgradeButton6" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1370551518 instance=ExtResource("4_gee14")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rysoc")
 
 [node name="LeftPanel" type="Panel" parent="." unique_id=907673007]
 layout_mode = 1
@@ -149,9 +248,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 91
+theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 76
-theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
 [node name="Stats" type="VBoxContainer" parent="LeftPanel/MarginContainer" unique_id=511652317]
@@ -225,6 +323,21 @@ theme_override_fonts/font = ExtResource("3_gee14")
 theme_override_font_sizes/font_size = 20
 text = "0 PER SECOND"
 vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="LeftPanel" unique_id=333623643]
+position = Vector2(58.000004, 174)
+scale = Vector2(0.04736328, 0.04736328)
+texture = ExtResource("12_dinhu")
+
+[node name="Followers" type="Sprite2D" parent="LeftPanel" unique_id=686737892]
+position = Vector2(55, 90)
+scale = Vector2(0.05625002, 0.05625002)
+texture = ExtResource("8_kvpfn")
+
+[node name="Logo" type="Sprite2D" parent="LeftPanel" unique_id=1051427085]
+position = Vector2(40, 40)
+scale = Vector2(0.024709329, 0.02470933)
+texture = ExtResource("10_kvuet")
 
 [node name="CenterPanel" type="Panel" parent="." unique_id=412655587]
 layout_mode = 0
