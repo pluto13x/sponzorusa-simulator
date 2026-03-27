@@ -4,21 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dhxlek2fagvcq" path="res://Screenshot 2026-03-25 234912.png" id="2_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="4_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://7w7donwap0or" path="res://assets/upgrade icons/AdobeStock_316494354-scaled.png" id="4_gee14"]
-[ext_resource type="StyleBox" uid="uid://bed357cj0m3pq" path="res://styles/defaultUpgrade.tres" id="4_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cyhhvmvjjpvxw" path="res://scenes/upgrade_button.tscn" id="4_gee14"]
+[ext_resource type="StyleBox" uid="uid://bfiw1lc2liaon" path="res://styles/search.tres" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/img/cookie.png" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scenes/posts.gd" id="6_u5sy4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
-bg_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
@@ -39,15 +32,8 @@ border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpfn"]
-bg_color = Color(0.8352941, 0.8627451, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
 
 [sub_resource type="Theme" id="Theme_7jktm"]
 
@@ -84,7 +70,7 @@ offset_right = 321.0
 offset_bottom = 53.0
 theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_styles/normal = SubResource("StyleBoxFlat_gee14")
+theme_override_styles/normal = ExtResource("4_vtaks")
 text = "      Search Sponzzr"
 vertical_alignment = 1
 
@@ -95,10 +81,11 @@ offset_top = 63.0
 offset_right = 327.0
 offset_bottom = 103.0
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_u5sy4")
 text = "  Upgrades"
 vertical_alignment = 1
@@ -119,65 +106,33 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 
-[node name="UpgradeButtons" type="VBoxContainer" parent="RightPanel/Panel/MarginContainer" unique_id=264514197]
+[node name="ScrollContainer" type="ScrollContainer" parent="RightPanel/Panel/MarginContainer" unique_id=185988628]
 layout_mode = 2
-theme_override_constants/separation = 17
+horizontal_scroll_mode = 0
 
-[node name="Button" type="Button" parent="RightPanel/Panel/MarginContainer/UpgradeButtons" unique_id=1411194802]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("4_vtaks")
-theme_override_styles/pressed = ExtResource("4_vtaks")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kvpfn")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button" unique_id=892110688]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer" unique_id=2078070456]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer/MarginContainer" unique_id=1402188554]
+[node name="UpgradeButtons" type="VBoxContainer" parent="RightPanel/Panel/MarginContainer/ScrollContainer" unique_id=264514197]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 1
+size_flags_vertical = 3
+theme_override_constants/separation = 17
 
-[node name="Name" type="Label" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1328976352]
+[node name="UpgradeButton" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1393777787 instance=ExtResource("4_gee14")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
-theme_override_colors/font_outline_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_gee14")
-text = "#LipFiller"
 
-[node name="Desc" type="Label" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1872541031]
+[node name="UpgradeButton2" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=371594509 instance=ExtResource("4_gee14")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
-theme_override_fonts/font = ExtResource("3_gee14")
-text = "Get big, luscious lips"
 
-[node name="Price" type="Label" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1243665083]
+[node name="UpgradeButton3" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=2031301634 instance=ExtResource("4_gee14")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
-theme_override_colors/font_outline_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_gee14")
-text = "$500"
 
-[node name="TextureRect" type="TextureRect" parent="RightPanel/Panel/MarginContainer/UpgradeButtons/Button/HBoxContainer" unique_id=786626956]
+[node name="UpgradeButton4" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1840947658 instance=ExtResource("4_gee14")]
 layout_mode = 2
-texture = ExtResource("4_gee14")
-expand_mode = 2
-stretch_mode = 6
+
+[node name="UpgradeButton5" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1926630113 instance=ExtResource("4_gee14")]
+layout_mode = 2
+
+[node name="UpgradeButton6" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1370551518 instance=ExtResource("4_gee14")]
+layout_mode = 2
 
 [node name="LeftPanel" type="Panel" parent="." unique_id=907673007]
 layout_mode = 1
@@ -207,19 +162,19 @@ script = ExtResource("4_0tnpc")
 
 [node name="Followers" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=277924774]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "Followers"
 vertical_alignment = 1
 
 [node name="FollowerCount" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=320573723]
 layout_mode = 2
 theme = SubResource("Theme_7jktm")
-theme_override_colors/font_color = Color(0.23137255, 0.24313726, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_fonts/font = ExtResource("3_gee14")
@@ -230,7 +185,7 @@ vertical_alignment = 1
 [node name="FollowersPerSec" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=490066092]
 layout_mode = 2
 theme = SubResource("Theme_7jktm")
-theme_override_colors/font_color = Color(0.23137255, 0.24313726, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_fonts/font = ExtResource("3_gee14")
@@ -240,19 +195,19 @@ vertical_alignment = 1
 
 [node name="Money" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=1744714015]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "Money"
 vertical_alignment = 1
 
 [node name="MoneyCount" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=1835636566]
 layout_mode = 2
 theme = SubResource("Theme_7jktm")
-theme_override_colors/font_color = Color(0.23137255, 0.24313726, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_fonts/font = ExtResource("3_gee14")
@@ -263,7 +218,7 @@ vertical_alignment = 1
 [node name="MoneyPerSec" type="Label" parent="LeftPanel/MarginContainer/Stats" unique_id=419666322]
 layout_mode = 2
 theme = SubResource("Theme_7jktm")
-theme_override_colors/font_color = Color(0.23137255, 0.24313726, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_fonts/font = ExtResource("3_gee14")
@@ -311,7 +266,12 @@ offset_left = 995.0
 offset_top = 574.0
 offset_right = 1109.0
 offset_bottom = 609.0
-text = "restart save"
+theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
+theme_override_colors/font_hover_color = Color(0.11372549, 0.6313726, 0.9490196, 1)
+theme_override_styles/normal = ExtResource("4_vtaks")
+theme_override_styles/pressed = ExtResource("4_vtaks")
+theme_override_styles/hover = ExtResource("4_vtaks")
+text = "restart game"
 
 [node name="Timer" type="Timer" parent="." unique_id=1965286781]
 wait_time = 0.1
