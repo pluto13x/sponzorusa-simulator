@@ -7,15 +7,44 @@
 [ext_resource type="PackedScene" uid="uid://cyhhvmvjjpvxw" path="res://scenes/upgrade_button.tscn" id="4_gee14"]
 [ext_resource type="StyleBox" uid="uid://bfiw1lc2liaon" path="res://styles/search.tres" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bnyc8ati8y4sl" path="res://assets/icons/search.png" id="5_kvpfn"]
-[ext_resource type="Texture2D" uid="uid://bqm2gipwmx0gg" path="res://assets/icons/cookie.png" id="5_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dn4a077kfryle" path="res://assets/icons/sparkles.png" id="5_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://cb6rft76tcrc3" path="res://assets/icons/pfp.png" id="6_264po"]
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scenes/posts.gd" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://qvq0js4wq7wc" path="res://assets/icons/gallery.png" id="7_1kice"]
+[ext_resource type="Texture2D" uid="uid://cqqvvdu3kp1p3" path="res://assets/icons/gif.png" id="8_5newe"]
 [ext_resource type="Texture2D" uid="uid://crmqycuneuprx" path="res://assets/icons/followers.png" id="8_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dc4j7l2jf1206" path="res://assets/icons/poll.png" id="9_37s47"]
 [ext_resource type="Texture2D" uid="uid://crpqhrp4vxu8s" path="res://assets/icons/logo.png" id="10_kvuet"]
 [ext_resource type="Texture2D" uid="uid://dp8epejgage0e" path="res://assets/icons/money.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://bkyxd04vw3unn" path="res://assets/icons/emoji.png" id="18_bt5mj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
+bg_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1j6l"]
+bg_color = Color(0.9882353, 0.99215686, 0.99607843, 1)
+border_width_top = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl11u"]
+bg_color = Color(0.9882353, 0.99215686, 0.99607843, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
+bg_color = Color(0.11372549, 0.6313726, 0.9490196, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 2
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
@@ -116,6 +145,8 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
 bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_right = 2
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
 
 [sub_resource type="Theme" id="Theme_7jktm"]
 
@@ -132,6 +163,105 @@ script = ExtResource("1_p57ef")
 position = Vector2(579, 310)
 scale = Vector2(0.9459103, 0.9459103)
 texture = ExtResource("2_u5sy4")
+
+[node name="CenterPanel" type="Panel" parent="." unique_id=412655587]
+layout_mode = 0
+offset_left = 265.0
+offset_right = 782.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_264po")
+
+[node name="HomePanel" type="Panel" parent="CenterPanel" unique_id=1905783606]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 517.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1j6l")
+
+[node name="Posts" type="Label" parent="CenterPanel/HomePanel" unique_id=862881659]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 3.0
+offset_right = 478.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_font_sizes/font_size = 17
+text = "Posts: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_u5sy4")
+
+[node name="Label" type="Label" parent="CenterPanel/HomePanel" unique_id=2117154309]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 56.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(0.039215688, 0.047058824, 0.05490196, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_font_sizes/font_size = 17
+text = "Home"
+
+[node name="Sparkles" type="Sprite2D" parent="CenterPanel/HomePanel" unique_id=1323243773]
+position = Vector2(495.00003, 21)
+scale = Vector2(0.07177743, 0.07177743)
+texture = ExtResource("5_ssvqc")
+
+[node name="MakePostPanel" type="Panel" parent="CenterPanel" unique_id=606567498]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 517.0
+offset_bottom = 151.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
+
+[node name="Pfp" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=1918509990]
+position = Vector2(29.250006, 33.250008)
+scale = Vector2(0.07714846, 0.07714846)
+texture = ExtResource("6_264po")
+
+[node name="PostButton" type="Button" parent="CenterPanel/MakePostPanel" unique_id=1918736669]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 48.0
+offset_right = 504.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+theme_override_colors/font_outline_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ssvqc")
+text = "Post"
+
+[node name="Label" type="Label" parent="CenterPanel/MakePostPanel" unique_id=1669924005]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 25.0
+offset_right = 196.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("3_gee14")
+theme_override_font_sizes/font_size = 14
+text = "What's happening?"
+
+[node name="Gallery" type="Sprite2D" parent="CenterPanel" unique_id=1998101223]
+position = Vector2(71.00001, 125.00001)
+scale = Vector2(0.04736332, 0.04736332)
+texture = ExtResource("7_1kice")
+
+[node name="Gif" type="Sprite2D" parent="CenterPanel" unique_id=886819430]
+position = Vector2(100.562485, 125.4375)
+scale = Vector2(0.040771436, 0.04077149)
+texture = ExtResource("8_5newe")
+
+[node name="Poll" type="Sprite2D" parent="CenterPanel" unique_id=2092996119]
+position = Vector2(129, 125.00001)
+scale = Vector2(0.11750001, 0.11750001)
+texture = ExtResource("9_37s47")
 
 [node name="RightPanel" type="Panel" parent="." unique_id=1406605891]
 layout_mode = 1
@@ -339,37 +469,7 @@ position = Vector2(40, 40)
 scale = Vector2(0.024709329, 0.02470933)
 texture = ExtResource("10_kvuet")
 
-[node name="CenterPanel" type="Panel" parent="." unique_id=412655587]
-layout_mode = 0
-offset_left = 265.0
-offset_right = 782.0
-offset_bottom = 648.0
-
-[node name="PostButton" type="TextureButton" parent="CenterPanel" unique_id=1921106611]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 113.0
-offset_right = 513.0
-offset_bottom = 139.0
-texture_normal = ExtResource("5_vtaks")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Posts" type="Label" parent="CenterPanel" unique_id=862881659]
-layout_mode = 0
-offset_left = 344.0
-offset_top = 11.0
-offset_right = 503.0
-offset_bottom = 56.0
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_font_sizes/font_size = 37
-text = "Posts: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("6_u5sy4")
-
-[node name="sponzorusa" parent="." unique_id=274031362 instance=ExtResource("6_kvpfn")]
+[node name="sponzorusa" parent="LeftPanel" unique_id=274031362 instance=ExtResource("6_kvpfn")]
 position = Vector2(3.0000002, 229)
 scale = Vector2(0.2, 0.2)
 
@@ -381,18 +481,24 @@ offset_right = 1109.0
 offset_bottom = 609.0
 theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
 theme_override_colors/font_hover_color = Color(0.11372549, 0.6313726, 0.9490196, 1)
+theme_override_fonts/font = ExtResource("3_gee14")
 theme_override_styles/normal = ExtResource("4_vtaks")
 theme_override_styles/pressed = ExtResource("4_vtaks")
 theme_override_styles/hover = ExtResource("4_vtaks")
-text = "restart game"
+text = "Restart game"
 
 [node name="Timer" type="Timer" parent="." unique_id=1965286781]
 wait_time = 0.1
 autostart = true
 
+[node name="Emoji" type="Sprite2D" parent="." unique_id=1767314300]
+position = Vector2(420.99997, 125)
+scale = Vector2(0.044067476, 0.044067476)
+texture = ExtResource("18_bt5mj")
+
 [connection signal="gain_followers" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_followers"]
 [connection signal="gain_money" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_money"]
-[connection signal="gain_posts" from="." to="CenterPanel/Posts" method="_on_game_gain_posts"]
-[connection signal="button_down" from="CenterPanel/PostButton" to="." method="_on_post_button_button_down"]
+[connection signal="gain_posts" from="." to="CenterPanel/HomePanel/Posts" method="_on_game_gain_posts"]
+[connection signal="button_down" from="CenterPanel/MakePostPanel/PostButton" to="." method="_on_post_button_button_down"]
 [connection signal="button_down" from="RestartSave" to="." method="_on_restart_save_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
