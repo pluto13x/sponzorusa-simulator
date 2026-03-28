@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyhhvmvjjpvxw"]
 
-[ext_resource type="Script" uid="uid://d2v7aft2gmwp1" path="res://scenes/upgrade_button.gd" id="1_isks0"]
+[ext_resource type="Script" uid="uid://d2v7aft2gmwp1" path="res://scripts/upgrade_button.gd" id="1_isks0"]
 [ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="2_0e4al"]
 [ext_resource type="Texture2D" uid="uid://7w7donwap0or" path="res://assets/upgrade icons/lipfiller.png" id="3_o77qo"]
 

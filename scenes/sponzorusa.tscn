@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dqm8lpmabpugh"]
 
 [ext_resource type="Texture2D" uid="uid://cljxc5aeb0qut" path="res://assets/sponzorusa/regular asset.PNG" id="1_d3743"]
+[ext_resource type="Script" uid="uid://bqhm5d70lp8vf" path="res://scripts/sponzorusa.gd" id="1_ks5dm"]
 
 [node name="sponzorusa" type="Node2D" unique_id=274031362]
+script = ExtResource("1_ks5dm")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=478222966]
 texture = ExtResource("1_d3743")

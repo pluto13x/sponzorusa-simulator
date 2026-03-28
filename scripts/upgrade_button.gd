@@ -1,13 +1,15 @@
 extends Button
 
-signal pressed_upgrade(id)
+signal pressed_upgrade(idx, idy)
 
 var follower_price = 0
 var money_price = 0
-var id = 0
+var idx = 0
+var idy = 0
 
-func change_data(new_id, new_name, new_desc, new_price_text, new_texture, new_follower_price, new_money_price):
-	id = new_id
+func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_texture, new_follower_price, new_money_price):
+	idx = new_idx
+	idy = new_idy
 	follower_price = new_follower_price
 	money_price = new_money_price
 
@@ -18,4 +20,4 @@ func change_data(new_id, new_name, new_desc, new_price_text, new_texture, new_fo
 	
 
 func _on_button_down() -> void:
-	pressed_upgrade.emit(id)
+	pressed_upgrade.emit(idx, idy)
