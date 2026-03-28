@@ -1,18 +1,27 @@
 extends VBoxContainer
 
-#load images
+#region load images
 var lip_img = load("res://assets/upgrade icons/lipfiller.png")
 var boob_img = load("res://assets/upgrade icons/boobJob.png")
+var hair_img = load("res://assets/upgrade icons/hair.png")
+var makeup_img = load("res://assets/upgrade icons/makeup.png")
+#endregion
 
 var upgrade_button = preload("res://scenes/upgrade_button.tscn")
 var lip_filler = upgrade_button.instantiate()
 var boob_job = upgrade_button.instantiate()
+var hair = upgrade_button.instantiate()
+var makeup = upgrade_button.instantiate()
 
 func _ready() -> void:
 	add_child(lip_filler)
 	add_child(boob_job)
-	lip_filler.change_data("a", "a", "a",lip_img,  0, 0)
-	boob_job.change_data("astarst", "astar", "astarst",boob_img, 0, 0)
+	add_child(hair)
+	add_child(makeup)
+	lip_filler.change_data("#LipFiller", "Get big, luscious lips 💋", "-$500", lip_img,  0, 500)
+	boob_job.change_data("#BoobJob", "Upgrade your look... twice 👀", "-$1000", boob_img, 0, 1000)
+	hair.change_data("#SilkyHair", "Get rid of the frizz 👱‍♀️", "-$100", hair_img, 0, 100)
+	makeup.change_data("#MakeUp", "Buy some makeup and DIY 💄", "-$50", makeup_img, 0, 50)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

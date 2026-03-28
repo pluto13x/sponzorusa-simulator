@@ -63,6 +63,7 @@ text = "#LipFiller"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.39215687, 0.45882353, 1)
 theme_override_fonts/font = ExtResource("2_0e4al")
+theme_override_font_sizes/font_size = 14
 text = "Get big, luscious lips"
 
 [node name="Price" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=209566766]

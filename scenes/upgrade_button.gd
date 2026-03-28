@@ -1,11 +1,7 @@
 extends Button
 
-var upgrade_name = ""
-var desc = ""
-var price_text = ""
 var follower_price = 0
 var money_price = 0
-var texture = "res://assets/upgrade icons/lipfiller.png"
 
 func change_data(new_name, new_desc, new_price_text, new_texture, new_follower_price, new_money_price):
 	follower_price = new_follower_price
