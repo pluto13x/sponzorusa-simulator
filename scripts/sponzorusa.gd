@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var upgrade_buttons: VBoxContainer = $"../../RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons"
-const BODY_3 = preload("res://assets/sponzorusa/blonde hair asset.PNG")
+const BODY_4 = preload("res://assets/sponzorusa/extensions.PNG")
+const BODY_3 = preload("res://assets/sponzorusa/blone hair brown brows.PNG")
 const BODY_2 = preload("uid://dyqhavx68w2ql")
 const BODY_1 = preload("uid://cljxc5aeb0qut")
 const SISE_1 = preload("uid://d0duraq48p5d6")
@@ -46,6 +47,8 @@ func _on_upgrade_pressed(idx, idy):
 					$Body.texture = BODY_2
 				1:
 					$Body.texture = BODY_3
+				2: 
+					$Body.texture = BODY_4
 		3: #makeup
 			match idy:
 				0:

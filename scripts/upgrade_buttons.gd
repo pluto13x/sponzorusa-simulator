@@ -49,7 +49,9 @@ func _on_upgrade_pressed(idx, idy) -> void:
 		2: #hair
 			match idy:
 				0:
-					hair.change_data(2, 1, "#BlondeHair", "Just like Rapunzel 👱‍♀️", "-$100", hair_img, 0, 100)
+					hair.change_data(2, 1, "#BlondeHair", "Brighten up your look ☀️", "-$100", hair_img, 0, 100)
+				1:
+					hair.change_data(2, 2, "#Extensions", "Just like Rapunzel 👱‍♀️", "-$100", hair_img, 0, 100)
 		3: #makeup
 			match idy:
 				0:
