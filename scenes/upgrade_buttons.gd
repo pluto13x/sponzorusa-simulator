@@ -18,11 +18,24 @@ func _ready() -> void:
 	add_child(boob_job)
 	add_child(hair)
 	add_child(makeup)
-	lip_filler.change_data("#LipFiller", "Get big, luscious lips 💋", "-$500", lip_img,  0, 500)
-	boob_job.change_data("#BoobJob", "Upgrade your look... twice 👀", "-$1000", boob_img, 0, 1000)
-	hair.change_data("#SilkyHair", "Get rid of the frizz 👱‍♀️", "-$100", hair_img, 0, 100)
-	makeup.change_data("#MakeUp", "Buy some makeup and DIY 💄", "-$50", makeup_img, 0, 50)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	
+	lip_filler.change_data(0, "#LipFiller", "Get big, luscious lips 💋", "-$500", lip_img,  0, 500)
+	boob_job.change_data(1, "#BoobJob", "Upgrade your look... twice 👀", "-$1000", boob_img, 0, 1000)
+	hair.change_data(2, "#SilkyHair", "Get rid of the frizz 👱‍♀️", "-$100", hair_img, 0, 100)
+	makeup.change_data(3, "#MakeUp", "Buy some makeup and DIY 💄", "-$50", makeup_img, 0, 50)
+	
+	lip_filler.pressed_upgrade.connect(_on_upgrade_pressed)
+	boob_job.pressed_upgrade.connect(_on_upgrade_pressed)
+	hair.pressed_upgrade.connect(_on_upgrade_pressed)
+	makeup.pressed_upgrade.connect(_on_upgrade_pressed)
+	
+func _on_upgrade_pressed(id: int) -> void:
+	match id:
+		0:
+			print("Lip filler clicked")
+		1:
+			print("Boob job clicked")
+		2:
+			print("Hair clicked")
+		3:
+			print("Makeup clicked")

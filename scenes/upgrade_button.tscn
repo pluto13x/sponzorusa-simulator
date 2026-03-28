@@ -79,3 +79,5 @@ layout_mode = 2
 texture = ExtResource("3_o77qo")
 expand_mode = 2
 stretch_mode = 6
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
