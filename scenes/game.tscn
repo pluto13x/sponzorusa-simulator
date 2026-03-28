@@ -7,7 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://bfiw1lc2liaon" path="res://styles/search.tres" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bnyc8ati8y4sl" path="res://assets/icons/search.png" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dn4a077kfryle" path="res://assets/icons/sparkles.png" id="5_ssvqc"]
-[ext_resource type="Texture2D" uid="uid://cb6rft76tcrc3" path="res://assets/icons/pfp.png" id="6_264po"]
+[ext_resource type="Texture2D" uid="uid://dxqqxniay6thu" path="res://assets/icons/pfp.png" id="6_264po"]
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scripts/posts.gd" id="6_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://qvq0js4wq7wc" path="res://assets/icons/gallery.png" id="7_1kice"]
@@ -143,7 +143,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
 
 [node name="Pfp" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=1918509990]
 position = Vector2(29.250006, 33.250008)
-scale = Vector2(0.07714846, 0.07714846)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_264po")
 
 [node name="PostButton" type="Button" parent="CenterPanel/MakePostPanel" unique_id=1918736669]
