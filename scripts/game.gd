@@ -8,6 +8,7 @@ var posts = 0
 var posts_per_click = 1
 var followers_per_sec = 0
 var money_per_sec = 0
+var follower_multiplier = 0.25
 
 signal gain_followers(amount, persec)
 signal gain_posts(amount)
@@ -41,7 +42,7 @@ func emit_signals():
 	emit_signal("gain_money", money, money_per_sec)
 	
 func calculate_followers_and_money():
-	followers_per_sec = 0.25 * posts**0.6
+	followers_per_sec = follower_multiplier * posts**0.9
 	money_per_sec = 0.02 * posts**0.4 * followers**0.6
 	
 	followers += followers_per_sec/10

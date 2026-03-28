@@ -1,16 +1,16 @@
 extends Button
 
-signal pressed_upgrade(idx, idy, follower_price, money_price)
+signal pressed_upgrade(idx, idy, follower_multiplier, money_price)
 
-var follower_price = 0
+var follower_multiplier = 0
 var money_price = 0
 var idx = 0
 var idy = 0
 
-func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_texture, new_follower_price, new_money_price):
+func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_texture, new_follower_multiplier, new_money_price):
 	idx = new_idx
 	idy = new_idy
-	follower_price = new_follower_price
+	follower_multiplier = new_follower_multiplier
 	money_price = new_money_price
 
 	$HBoxContainer/TextureRect.texture = new_texture
@@ -20,4 +20,4 @@ func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_textu
 	
 
 func _on_button_down() -> void:
-	pressed_upgrade.emit(idx, idy, follower_price, money_price)
+	pressed_upgrade.emit(idx, idy, follower_multiplier, money_price)
