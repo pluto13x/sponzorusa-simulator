@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqm8lpmabpugh" path="res://scenes/sponzorusa.tscn" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://b5y1pcppps2cc" path="res://scripts/posts.gd" id="6_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://qvq0js4wq7wc" path="res://assets/icons/gallery.png" id="7_1kice"]
+[ext_resource type="StyleBox" uid="uid://cv40htndln6im" path="res://styles/post.tres" id="7_264po"]
 [ext_resource type="Texture2D" uid="uid://cqqvvdu3kp1p3" path="res://assets/icons/gif.png" id="8_5newe"]
 [ext_resource type="Texture2D" uid="uid://crmqycuneuprx" path="res://assets/icons/followers.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dc4j7l2jf1206" path="res://assets/icons/poll.png" id="9_37s47"]
@@ -34,8 +35,8 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
-bg_color = Color(0.11372549, 0.6313726, 0.9490196, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5newe"]
+bg_color = Color(0.04745824, 0.5351172, 0.81600785, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -156,7 +157,9 @@ theme_override_colors/font_color = Color(0.9607843, 0.972549, 0.98039216, 1)
 theme_override_colors/font_outline_color = Color(0.9607843, 0.972549, 0.98039216, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("3_gee14")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ssvqc")
+theme_override_styles/normal = ExtResource("7_264po")
+theme_override_styles/pressed = ExtResource("7_264po")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5newe")
 text = "Post"
 
 [node name="Gallery" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=1998101223]

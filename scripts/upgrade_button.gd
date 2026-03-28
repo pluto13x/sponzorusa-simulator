@@ -1,6 +1,6 @@
 extends Button
 
-signal pressed_upgrade(idx, idy)
+signal pressed_upgrade(idx, idy, follower_price, money_price)
 
 var follower_price = 0
 var money_price = 0
@@ -20,4 +20,4 @@ func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_textu
 	
 
 func _on_button_down() -> void:
-	pressed_upgrade.emit(idx, idy)
+	pressed_upgrade.emit(idx, idy, follower_price, money_price)
