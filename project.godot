@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="sponzorusaSimulator"
+config/name="Vain Validation"
+config/description="The screen isn't big enough for all the validation I need."
 run/main_scene="uid://c21siau1woym7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://crpqhrp4vxu8s"
 
 [display]
 

@@ -9,6 +9,13 @@ var hair_img = load("res://assets/upgrade icons/hair.png")
 var makeup_img = load("res://assets/upgrade icons/makeup.png")
 #endregion
 
+#region load sounds
+@onready var pop: AudioStreamPlayer = $"../../../../../Pop"
+@onready var boing: AudioStreamPlayer = $"../../../../../Boing"
+@onready var dryer: AudioStreamPlayer = $"../../../../../Dryer"
+@onready var shine: AudioStreamPlayer = $"../../../../../Shine"
+#endregion
+
 var upgrade_button = preload("res://scenes/upgrade_button.tscn")
 var lip_filler = upgrade_button.instantiate()
 var boob_job = upgrade_button.instantiate()
@@ -47,24 +54,28 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
 	
 	match idx:
 		0: #lips
+			pop.play()
 			match idy:
 				0:
 					lip_filler.change_data(0, 1, "#LipFiller", "Make em kissable 😘", "-$1400", lip_img,  1.5, 1400)
 				1:
 					lip_filler.change_data(0, 2, "#LipFiller", "Make em JUICY 💋", "-$2100", lip_img,  1.6, 2100)
 		1: #boobs
+			boing.play()
 			match idy:
 				0:
 					boob_job.change_data(1, 1, "#BoobJob", "Get them melons 🍈", "-$12000", boob_img, 1.7, 12000)
 				1:
 					boob_job.change_data(1, 2, "#BoobJob", "Give em gravity 🌍", "-$18000", boob_img, 1.8, 18000)
 		2: #hair
+			dryer.play()
 			match idy:
 				0:
 					hair.change_data(2, 1, "#BlondeHair", "Brighten up your look ☀️", "-$100", hair_img, 1.2, 100)
 				1:
 					hair.change_data(2, 2, "#Extensions", "Just like Rapunzel 👱‍♀️", "-$500", hair_img, 1.3, 500)
 		3: #makeup
+			shine.play()
 			match idy:
 				0:
 					makeup.change_data(3, 1, "#JimmyMUA", "See a famous MUA", "-$500", makeup_img, 1.4, 500)

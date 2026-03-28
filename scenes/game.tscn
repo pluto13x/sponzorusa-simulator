@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://dp8epejgage0e" path="res://assets/icons/money.png" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://tkolfgax3yg6" path="res://scripts/upgrade_buttons.gd" id="12_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://bkyxd04vw3unn" path="res://assets/icons/emoji.png" id="18_bt5mj"]
+[ext_resource type="AudioStream" uid="uid://cmmadohpfsjy4" path="res://assets/sounds/bgm.mp3" id="20_1kice"]
+[ext_resource type="AudioStream" uid="uid://ckc7nx1xilw53" path="res://assets/sounds/pop.wav" id="21_bt5mj"]
+[ext_resource type="AudioStream" uid="uid://c4s8jndy74ifi" path="res://assets/sounds/hair_dryer.wav" id="22_e1j6l"]
+[ext_resource type="AudioStream" uid="uid://ch4ky5wvtr4m4" path="res://assets/sounds/shine.mp3" id="23_pl11u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
 bg_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
@@ -391,6 +395,24 @@ autostart = true
 position = Vector2(420.99997, 125)
 scale = Vector2(0.044067476, 0.044067476)
 texture = ExtResource("18_bt5mj")
+
+[node name="Bgm" type="AudioStreamPlayer" parent="." unique_id=1058364724]
+stream = ExtResource("20_1kice")
+volume_db = -10.29
+autoplay = true
+parameters/looping = true
+
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=1570897917]
+stream = ExtResource("21_bt5mj")
+
+[node name="Boing" type="AudioStreamPlayer" parent="." unique_id=2020904208]
+stream = ExtResource("21_bt5mj")
+
+[node name="Dryer" type="AudioStreamPlayer" parent="." unique_id=650977252]
+stream = ExtResource("22_e1j6l")
+
+[node name="Shine" type="AudioStreamPlayer" parent="." unique_id=491263651]
+stream = ExtResource("23_pl11u")
 
 [connection signal="gain_followers" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_followers"]
 [connection signal="gain_money" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_money"]
