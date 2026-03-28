@@ -1,8 +1,20 @@
 [gd_scene format=3 uid="uid://cyhhvmvjjpvxw"]
 
-[ext_resource type="StyleBox" uid="uid://ceknio475mw6m" path="res://styles/pressed.tres" id="1_isks0"]
+[ext_resource type="Script" uid="uid://d2v7aft2gmwp1" path="res://scenes/upgrade_button.gd" id="1_isks0"]
 [ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="2_0e4al"]
-[ext_resource type="Texture2D" uid="uid://7w7donwap0or" path="res://assets/upgrade icons/AdobeStock_316494354-scaled.png" id="3_o77qo"]
+[ext_resource type="Texture2D" uid="uid://7w7donwap0or" path="res://assets/upgrade icons/lipfiller.png" id="3_o77qo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
+bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpfn"]
 bg_color = Color(0.8352941, 0.8627451, 0.89411765, 1)
@@ -13,9 +25,10 @@ corner_radius_bottom_left = 10
 
 [node name="UpgradeButton" type="Button" unique_id=1393777787]
 custom_minimum_size = Vector2(0, 70)
-theme_override_styles/normal = ExtResource("1_isks0")
-theme_override_styles/pressed = ExtResource("1_isks0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tnpc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0tnpc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kvpfn")
+script = ExtResource("1_isks0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1101192440]
 layout_mode = 1

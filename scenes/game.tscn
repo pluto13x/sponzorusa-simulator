@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dhxlek2fagvcq" path="res://Screenshot 2026-03-25 234912.png" id="2_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dotcd5415ybtp" path="res://assets/fonts/Roboto-VariableFont_wdth,wght.ttf" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bdnampsdc2ngg" path="res://scripts/stats.gd" id="4_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://cyhhvmvjjpvxw" path="res://scenes/upgrade_button.tscn" id="4_gee14"]
 [ext_resource type="StyleBox" uid="uid://bfiw1lc2liaon" path="res://styles/search.tres" id="4_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bnyc8ati8y4sl" path="res://assets/icons/search.png" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://dn4a077kfryle" path="res://assets/icons/sparkles.png" id="5_ssvqc"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4j7l2jf1206" path="res://assets/icons/poll.png" id="9_37s47"]
 [ext_resource type="Texture2D" uid="uid://crpqhrp4vxu8s" path="res://assets/icons/logo.png" id="10_kvuet"]
 [ext_resource type="Texture2D" uid="uid://dp8epejgage0e" path="res://assets/icons/money.png" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://tkolfgax3yg6" path="res://scenes/upgrade_buttons.gd" id="12_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://bkyxd04vw3unn" path="res://assets/icons/emoji.png" id="18_bt5mj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
@@ -62,84 +62,6 @@ border_width_left = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trtic"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir15t"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca42v"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
-resource_local_to_scene = true
-bg_color = Color(0.9607843, 0.972549, 0.98039216, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
@@ -237,6 +159,21 @@ theme_override_fonts/font = ExtResource("3_gee14")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ssvqc")
 text = "Post"
 
+[node name="Gallery" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=1998101223]
+position = Vector2(71, 65.00001)
+scale = Vector2(0.04736332, 0.04736332)
+texture = ExtResource("7_1kice")
+
+[node name="Gif" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=886819430]
+position = Vector2(100.5625, 65.4375)
+scale = Vector2(0.040771436, 0.04077149)
+texture = ExtResource("8_5newe")
+
+[node name="Poll" type="Sprite2D" parent="CenterPanel/MakePostPanel" unique_id=2092996119]
+position = Vector2(129, 65.00001)
+scale = Vector2(0.11750001, 0.11750001)
+texture = ExtResource("9_37s47")
+
 [node name="Label" type="Label" parent="CenterPanel/MakePostPanel" unique_id=1669924005]
 layout_mode = 0
 offset_left = 62.0
@@ -247,21 +184,6 @@ theme_override_colors/font_color = Color(0.20784314, 0.21960784, 0.23137255, 1)
 theme_override_fonts/font = ExtResource("3_gee14")
 theme_override_font_sizes/font_size = 14
 text = "What's happening?"
-
-[node name="Gallery" type="Sprite2D" parent="CenterPanel" unique_id=1998101223]
-position = Vector2(71.00001, 125.00001)
-scale = Vector2(0.04736332, 0.04736332)
-texture = ExtResource("7_1kice")
-
-[node name="Gif" type="Sprite2D" parent="CenterPanel" unique_id=886819430]
-position = Vector2(100.562485, 125.4375)
-scale = Vector2(0.040771436, 0.04077149)
-texture = ExtResource("8_5newe")
-
-[node name="Poll" type="Sprite2D" parent="CenterPanel" unique_id=2092996119]
-position = Vector2(129, 125.00001)
-scale = Vector2(0.11750001, 0.11750001)
-texture = ExtResource("9_37s47")
 
 [node name="RightPanel" type="Panel" parent="." unique_id=1406605891]
 layout_mode = 1
@@ -332,36 +254,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 17
-
-[node name="UpgradeButton" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1393777787 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dinhu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dinhu")
-
-[node name="UpgradeButton2" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=371594509 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kvuet")
-
-[node name="UpgradeButton3" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=2031301634 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_trtic")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_trtic")
-
-[node name="UpgradeButton4" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1840947658 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ir15t")
-
-[node name="UpgradeButton5" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1926630113 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ca42v")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ca42v")
-
-[node name="UpgradeButton6" parent="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" unique_id=1370551518 instance=ExtResource("4_gee14")]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_rysoc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rysoc")
+script = ExtResource("12_ssvqc")
 
 [node name="LeftPanel" type="Panel" parent="." unique_id=907673007]
 layout_mode = 1

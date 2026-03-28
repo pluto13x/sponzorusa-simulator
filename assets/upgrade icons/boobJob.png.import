@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7w7donwap0or"
-path="res://.godot/imported/AdobeStock_316494354-scaled.png-e1b57f926fd8266f4eee9c8bc1bef51e.ctex"
+uid="uid://byx5ge4suhukt"
+path="res://.godot/imported/boobJob.png-acde6d003b491d2ef9e9d7122ef061de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/upgrade icons/AdobeStock_316494354-scaled.png"
-dest_files=["res://.godot/imported/AdobeStock_316494354-scaled.png-e1b57f926fd8266f4eee9c8bc1bef51e.ctex"]
+source_file="res://assets/upgrade icons/boobJob.png"
+dest_files=["res://.godot/imported/boobJob.png-acde6d003b491d2ef9e9d7122ef061de.ctex"]
 
 [params]
 
