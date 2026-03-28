@@ -2,6 +2,7 @@ extends VBoxContainer
 
 signal to_sponzorusa(idx, idy)
 
+var money = 0
 #region load images
 var lip_img = load("res://assets/upgrade icons/lipfiller.png")
 var boob_img = load("res://assets/upgrade icons/boobJob.png")
@@ -30,7 +31,16 @@ func _ready() -> void:
 	boob_job.pressed_upgrade.connect(_on_upgrade_pressed)
 	hair.pressed_upgrade.connect(_on_upgrade_pressed)
 	makeup.pressed_upgrade.connect(_on_upgrade_pressed)
-	
+
+func _process(delta: float) -> void:
+	money = $"../../../../..".money
+	for child in get_children():
+		if child.money_price > money:
+			child.disabled = true
+		else:
+			child.disabled = false
+		
+
 func _on_upgrade_pressed(idx, idy) -> void:
 	to_sponzorusa.emit(idx, idy)
 	match idx:
@@ -39,7 +49,7 @@ func _on_upgrade_pressed(idx, idy) -> void:
 				0:
 					lip_filler.change_data(0, 1, "#LipFiller", "Make em kissable 😘", "-$500", lip_img,  0, 500)
 				1:
-					lip_filler.change_data(0, 2, "#LipFiller", "Big, JUICY lips 💋", "-$500", lip_img,  0, 500)
+					lip_filler.change_data(0, 2, "#LipFiller", "Make em JUICY 💋", "-$500", lip_img,  0, 500)
 		1: #boobs
 			match idy:
 				0:

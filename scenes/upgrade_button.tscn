@@ -23,11 +23,19 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isks0"]
+bg_color = Color(0.8352941, 0.87058824, 0.89411765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="UpgradeButton" type="Button" unique_id=1393777787]
 custom_minimum_size = Vector2(0, 70)
 theme_override_styles/normal = SubResource("StyleBoxFlat_0tnpc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0tnpc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kvpfn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_isks0")
 script = ExtResource("1_isks0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1101192440]
