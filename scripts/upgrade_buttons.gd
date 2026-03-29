@@ -40,7 +40,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for child in get_children():
-		if child.money_price > $"../../../../..".money:
+		if child.money_price > $"../../../../..".money or child.disabled_forever:
 			child.disabled = true
 		else:
 			child.disabled = false
@@ -60,6 +60,8 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
 					lip_filler.change_data(0, 1, "#LipFiller", "Make em kissable 😘", "-$1400", lip_img,  1.5, 1400)
 				1:
 					lip_filler.change_data(0, 2, "#LipFiller", "Make em JUICY 💋", "-$2100", lip_img,  1.6, 2100)
+				2:
+					lip_filler.disabled_forever = true
 		1: #boobs
 			boing.play()
 			match idy:
@@ -67,6 +69,8 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
 					boob_job.change_data(1, 1, "#BoobJob", "Get them melons 🍈", "-$12000", boob_img, 1.7, 12000)
 				1:
 					boob_job.change_data(1, 2, "#BoobJob", "Give em gravity 🌍", "-$18000", boob_img, 1.8, 18000)
+				2:	
+					boob_job.disabled_forever = true
 		2: #hair
 			dryer.play()
 			match idy:
@@ -74,6 +78,8 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
 					hair.change_data(2, 1, "#BlondeHair", "Brighten up your look ☀️", "-$100", hair_img, 1.2, 100)
 				1:
 					hair.change_data(2, 2, "#Extensions", "Just like Rapunzel 👱‍♀️", "-$500", hair_img, 1.3, 500)
+				2:	
+					hair.disabled_forever = true
 		3: #makeup
 			shine.play()
 			match idy:
@@ -81,3 +87,5 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
 					makeup.change_data(3, 1, "#JimmyMUA", "See a famous MUA", "-$500", makeup_img, 1.4, 500)
 				1: 
 					makeup.change_data(3, 2, "#TattooMakeup", "Be beautiful, always", "-$1000", makeup_img, 1.5, 1000)
+				2:	
+					makeup.disabled_forever = true

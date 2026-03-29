@@ -6,6 +6,7 @@ var follower_multiplier = 0
 var money_price = 0
 var idx = 0
 var idy = 0
+var disabled_forever = false
 
 func change_data(new_idx, new_idy, new_name, new_desc, new_price_text, new_texture, new_follower_multiplier, new_money_price):
 	idx = new_idx
