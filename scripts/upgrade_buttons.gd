@@ -31,7 +31,7 @@ func _ready() -> void:
 	add_child(hair)
 	add_child(makeup)
 	
-	monetize.change_data(4, 0, "#Monetization", "Start making money💲", "👤 100", monetize_img, 1, -999999)
+	monetize.change_data(4, 0, "#Monetization", "Start making money💲", "👤 100", monetize_img, 1, 0, 0, 100)
 	lip_filler.change_data(0, 0, "#LipFiller", "Get big, luscious lips 💋", "-$700", lip_img,  1.4, 700)
 	boob_job.change_data(1, 0, "#BoobJob", "Upgrade your look... twice 👀", "-$6000", boob_img, 1.6, 6000)
 	hair.change_data(2, 0, "#SilkyHair", "Get rid of the frizz 👱‍♀️", "-$20", hair_img, 1.1, 20)
@@ -45,7 +45,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for child in get_children():
-		if child.condition_type == "money" and child.money_price > $"../../../../..".money:
+		if child.follower_multiplier > 1 and child.money_price > $"../../../../..".money:
+			child.disabled = true
+		elif child.follower_multiplier == 1 and child.follower_price > $"../../../../..".followers:
 			child.disabled = true
 		else:
 			child.disabled = false
@@ -96,3 +98,6 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price, follower_lo
 					makeup.change_data(3, 2, "#TattooMakeup", "Be beautiful, always", "-$1000", makeup_img, 1.5, 1000)
 				2:	
 					makeup.disabled_forever = true
+		4: #monetize
+			$"../../../../..".monetized = 1
+			monetize.disabled_forever = true
