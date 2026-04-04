@@ -7,6 +7,7 @@ var lip_img = load("res://assets/upgrade icons/lipfiller.png")
 var boob_img = load("res://assets/upgrade icons/boobJob.png")
 var hair_img = load("res://assets/upgrade icons/hair.png")
 var makeup_img = load("res://assets/upgrade icons/makeup.png")
+var monetize_img = load("res://assets/upgrade icons/monetize.png")
 #endregion
 
 #region load sounds
@@ -21,18 +22,22 @@ var lip_filler = upgrade_button.instantiate()
 var boob_job = upgrade_button.instantiate()
 var hair = upgrade_button.instantiate()
 var makeup = upgrade_button.instantiate()
+var monetize = upgrade_button.instantiate()
 
 func _ready() -> void:
+	add_child(monetize)
 	add_child(lip_filler)
 	add_child(boob_job)
 	add_child(hair)
 	add_child(makeup)
 	
+	monetize.change_data(4, 0, "#Monetization", "Start making money💲", "👤 100", monetize_img, 1, -999999)
 	lip_filler.change_data(0, 0, "#LipFiller", "Get big, luscious lips 💋", "-$700", lip_img,  1.4, 700)
 	boob_job.change_data(1, 0, "#BoobJob", "Upgrade your look... twice 👀", "-$6000", boob_img, 1.6, 6000)
 	hair.change_data(2, 0, "#SilkyHair", "Get rid of the frizz 👱‍♀️", "-$20", hair_img, 1.1, 20)
 	makeup.change_data(3, 0, "#LashExtensions", "Get voluminous lashes 👁️", "-$100", makeup_img, 1.2, 100)
 	
+	monetize.pressed_upgrade.connect(_on_upgrade_pressed)
 	lip_filler.pressed_upgrade.connect(_on_upgrade_pressed)
 	boob_job.pressed_upgrade.connect(_on_upgrade_pressed)
 	hair.pressed_upgrade.connect(_on_upgrade_pressed)
@@ -40,19 +45,21 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for child in get_children():
-		if child.money_price > $"../../../../..".money or child.disabled_forever:
+		if child.condition_type == "money" and child.money_price > $"../../../../..".money:
 			child.disabled = true
 		else:
 			child.disabled = false
 		
 
-func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price) -> void:
+func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price, follower_loss) -> void:
 	to_sponzorusa.emit(idx, idy)
 	$"../../../../..".money -= money_price
 	$"../../../../..".follower_multiplier *= follower_multiplier
-	print($"../../../../..".follower_multiplier)
+	print($"../../../../..".followers)
+	$"../../../../..".followers -= $"../../../../..".followers * follower_loss
+	print($"../../../../..".followers)
 	
-	match idx:
+	match idx: #update buttons to next upgrade
 		0: #lips
 			pop.play()
 			match idy:
