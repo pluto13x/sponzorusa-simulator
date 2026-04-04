@@ -4,3 +4,4 @@
 3 makeup
 4 monetize
 5 sponsors
+6 hire

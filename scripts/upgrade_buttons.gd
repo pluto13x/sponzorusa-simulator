@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 signal to_sponzorusa(idx, idy)
+signal hired(perc)
 
 #region load images
 var lip_img = load("res://assets/upgrade icons/lipfiller.png")
@@ -11,6 +12,7 @@ var monetize_img = load("res://assets/upgrade icons/monetize.png")
 var earbuds_img = load("res://assets/upgrade icons/earbuds.png")
 var meal_img = load("res://assets/upgrade icons/meal.png")
 var therapy_img = load("res://assets/upgrade icons/therapy.png")
+var hire_img = load("res://assets/upgrade icons/hire.png")
 #endregion
 
 #region load sounds
@@ -27,14 +29,16 @@ var hair = upgrade_button.instantiate()
 var makeup = upgrade_button.instantiate()
 var monetize = upgrade_button.instantiate()
 var sponsor = upgrade_button.instantiate()
+var hire = upgrade_button.instantiate()
 
 func _ready() -> void:
 	add_child(monetize)
-	add_child(lip_filler)
-	add_child(boob_job)
 	add_child(hair)
 	add_child(makeup)
 	add_child(sponsor)
+	add_child(lip_filler)
+	add_child(boob_job)
+	add_child(hire)
 	
 	lip_filler.change_data(0, 0, "#LipFiller", "Get big, luscious lips 💋", "-$700", lip_img,  1.4, 700)
 	boob_job.change_data(1, 0, "#BoobJob", "Upgrade your look... twice 👀", "-$6000", boob_img, 1.6, 6000)
@@ -42,6 +46,7 @@ func _ready() -> void:
 	makeup.change_data(3, 0, "#LashExtensions", "Get voluminous lashes 👁️", "-$100", makeup_img, 1.2, 100)
 	monetize.change_data(4, 0, "#Monetization", "Start making money💲", "👤100", monetize_img, 1, 0, 0, 100)
 	sponsor.change_data(5, 0, "#RyuBuds #AD", "Your first sponsorship!💲", "👤1000 +$500 -👤3%", earbuds_img, 1, -500, 0.03, 1000)
+	hire.change_data(6, 0, "#Automatization", "Hire posters 💻", "👤300 -$5% profits", hire_img, 1, 0, 0, 300)
 	
 	monetize.pressed_upgrade.connect(_on_upgrade_pressed)
 	lip_filler.pressed_upgrade.connect(_on_upgrade_pressed)
@@ -49,6 +54,7 @@ func _ready() -> void:
 	hair.pressed_upgrade.connect(_on_upgrade_pressed)
 	makeup.pressed_upgrade.connect(_on_upgrade_pressed)
 	sponsor.pressed_upgrade.connect(_on_upgrade_pressed)
+	hire.pressed_upgrade.connect(_on_upgrade_pressed)
 
 func _process(_delta: float) -> void:
 	for child in get_children():
@@ -116,3 +122,14 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price, follower_lo
 					sponsor.change_data(5, 2, "#GreatHelp #AD", "Mental health matters 😢", "👤6000 +$3000 -👤10%", therapy_img, 1, -3000, 0.06, 3000)
 				2:
 					sponsor.disabled_forever = true
+		6: #hire
+			match idy:
+				0:
+					hired.emit(0.05)
+					hire.change_data(6, 1, "#Automatization", "Hire commenters 📱", "👤900 -$5% profits", hire_img, 1, 0, 0, 900)
+				1: 
+					hired.emit(0.05)
+					hire.change_data(6, 2, "#Chatters", "Hire chatters 💬", "👤2500 +$20% profits", hire_img, 1, 0, 0, 2500)
+				2:
+					hired.emit(0.2)
+					hire.disabled_forever = true
