@@ -10,6 +10,8 @@ var followers_per_sec = 0
 var money_per_sec = 0
 var follower_multiplier = 0.25
 var monetized = 0
+var employee_pay = 0
+var autopost = false
 
 signal gain_followers(amount, persec)
 signal gain_posts(amount)
@@ -45,6 +47,7 @@ func emit_signals():
 func calculate_followers_and_money():
 	followers_per_sec = follower_multiplier * posts**0.9
 	money_per_sec = 0.02 * posts**0.4 * followers**0.6 * monetized
+	money_per_sec += money_per_sec * employee_pay
 	
 	followers += followers_per_sec/10
 	money += money_per_sec/10
@@ -70,4 +73,11 @@ func _on_restart_save_button_down() -> void:
 
 func _on_timer_timeout() -> void:
 	calculate_followers_and_money()
+	if autopost:
+		posts += posts_per_click
+		emit_signal("gain_posts", posts)
 	emit_signals()
+
+
+func _on_upgrade_buttons_hired(perc: Variant) -> void:
+	employee_pay += perc

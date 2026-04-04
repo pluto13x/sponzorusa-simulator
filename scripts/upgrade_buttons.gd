@@ -125,10 +125,11 @@ func _on_upgrade_pressed(idx, idy, follower_multiplier, money_price, follower_lo
 		6: #hire
 			match idy:
 				0:
-					hired.emit(0.05)
-					hire.change_data(6, 1, "#Automatization", "Hire commenters 📱", "👤900 -$5% profits", hire_img, 1, 0, 0, 900)
+					$"../../../../..".autopost = true
+					hired.emit(-0.05)
+					hire.change_data(6, 1, "#ThankYouu", "Hire commenters 📱", "👤900 -$5% profits", hire_img, 1, 0, 0, 900)
 				1: 
-					hired.emit(0.05)
+					hired.emit(-0.05)
 					hire.change_data(6, 2, "#Chatters", "Hire chatters 💬", "👤2500 +$20% profits", hire_img, 1, 0, 0, 2500)
 				2:
 					hired.emit(0.2)

@@ -421,5 +421,6 @@ stream = ExtResource("23_pl11u")
 [connection signal="gain_money" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_gain_money"]
 [connection signal="gain_posts" from="." to="CenterPanel/HomePanel/Posts" method="_on_game_gain_posts"]
 [connection signal="button_down" from="CenterPanel/MakePostPanel/PostButton" to="." method="_on_post_button_button_down"]
+[connection signal="hired" from="RightPanel/Panel/MarginContainer/ScrollContainer/UpgradeButtons" to="." method="_on_upgrade_buttons_hired"]
 [connection signal="button_down" from="RestartSave" to="." method="_on_restart_save_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
