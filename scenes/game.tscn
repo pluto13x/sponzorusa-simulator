@@ -86,6 +86,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p57ef")
+followers = 7000
 money = 9999999
 
 [node name="Screenshot20260325234912" type="Sprite2D" parent="." unique_id=436486327]

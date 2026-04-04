@@ -2,7 +2,7 @@ extends Control
 
 const save_path = "user://userdata.save"
 
-var followers = 0
+@export var followers = 0
 @export var money = 0
 var posts = 0
 var posts_per_click = 1
